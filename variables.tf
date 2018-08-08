@@ -1,35 +1,35 @@
 variable "cluster_name" {
-  description = "Specify the cluster name all resources get named and tagged with"
+  description = "Cluster name all resources get named and tagged with"
 }
 
 variable "tags" {
-  description = "Add special tags to the resources created by this module"
+  description = "Custom tags added to the resources created by this module"
   type        = "map"
   default     = {}
 }
 
 variable "aws_ami" {
-  description = "Specify the AMI to be used."
+  description = "AMI to be used"
   default     = ""
 }
 
 variable "aws_instance_type" {
-  description = "Specify the instance type"
+  description = "Instance type"
   default     = "t2.medium"
 }
 
 variable "aws_root_volume_size" {
-  description = "Specify the root volume size"
+  description = "Root volume size"
   default     = "80"
 }
 
 variable "aws_root_volume_type" {
-  description = "Specify the root volume type."
+  description = "Root volume type"
   default     = "standard"
 }
 
 variable "aws_subnet_ids" {
-  description = "Subnets to spawn the instances in. The module tries to distribute the instances"
+  description = "Subnets to spawn the instances in (the module tries to distribute the instances)"
   type        = "list"
 }
 
@@ -39,23 +39,23 @@ variable "aws_security_group_ids" {
 }
 
 variable "aws_iam_instance_profile" {
-  description = "The instance profile to be used for these instances"
+  description = "Instance profile to be used for these instances"
   default     = ""
 }
 
 variable "aws_associate_public_ip_address" {
-  description = "The instance profile to be used for these instances"
+  description = "Instance profile to be used for these instances"
   default     = true
 }
 
 variable "aws_user_data" {
-  description = "The user data to be used on these instances. E.g. cloud init"
+  description = "User data to be used on these instances (cloud-init)"
   default     = ""
 }
 
 // TODO: Maybe use a list instead and provision keys through cloudinit
 variable "aws_key_name" {
-  description = "The SSH key to use for these instances."
+  description = "SSH key to use for these instances"
 }
 
 variable "hostname_format" {
@@ -64,6 +64,6 @@ variable "hostname_format" {
 }
 
 variable "dcos_instance_os" {
-  description = "The operating system to use. Instead of using your own AMI you could use a provided OS."
+  description = "Operating system to use. Instead of using your own AMI you could use a provided OS."
   default     = "centos_7.4"
 }
