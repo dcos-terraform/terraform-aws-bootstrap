@@ -48,7 +48,7 @@ variable "aws_associate_public_ip_address" {
   default     = true
 }
 
-variable "aws_user_data" {
+variable "user_data" {
   description = "The user data to be used on these instances. E.g. cloud init"
   default     = ""
 }

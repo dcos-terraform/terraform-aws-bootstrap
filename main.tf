@@ -46,7 +46,7 @@ module "dcos-bootstrap-instance" {
   hostname_format    = "${var.hostname_format}"
   num                = "1"
   ami                = "${coalesce(var.aws_ami,module.dcos-tested-oses.aws_ami)}"
-  user_data          = "${var.aws_ami == "" ? module.dcos-tested-oses.os-setup : var.aws_user_data}"
+  user_data          = "${var.user_data}"
   instance_type      = "${var.aws_instance_type}"
   subnet_ids         = ["${var.aws_subnet_ids}"]
   security_group_ids = ["${var.aws_security_group_ids}"]
@@ -54,4 +54,27 @@ module "dcos-bootstrap-instance" {
   root_volume_size   = "${var.aws_root_volume_size}"
   root_volume_type   = "${var.aws_root_volume_type}"
   tags               = "${var.tags}"
+}
+
+resource "null_resource" "bootstrap" {
+  // if the user supplies an AMI or user_data we expect the prerequisites are met.
+  count = "${coalesce(var.aws_ami, var.user_data) == "" ? 1 : 0}"
+
+  connection {
+    host = "${module.dcos-bootstrap-instance.public_ips[0]}"
+    user = "${module.dcos-tested-oses.user}"
+  }
+
+  provisioner "file" {
+    content = "${module.dcos-tested-oses.os-setup}"
+
+    destination = "/tmp/dcos-prereqs.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/dcos-prereqs.sh",
+      "sudo bash -x /tmp/dcos-prereqs.sh",
+    ]
+  }
 }
