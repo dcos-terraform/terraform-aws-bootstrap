@@ -56,12 +56,12 @@ module "dcos-bootstrap-instance" {
   tags               = "${var.tags}"
 }
 
-resource "null_resource" "bootstrap" {
+resource "null_resource" "bootstrap-prereqs" {
   // if the user supplies an AMI or user_data we expect the prerequisites are met.
   count = "${coalesce(var.aws_ami, var.user_data) == "" ? 1 : 0}"
 
   connection {
-    host = "${module.dcos-bootstrap-instance.public_ips[0]}"
+    host = "${var.associate_public_ip_address ? module.dcos-bootstrap-instance.public_ips[0] : module.dcos-bootstrap-instance.private_ips[0]}"
     user = "${module.dcos-tested-oses.user}"
   }
 
