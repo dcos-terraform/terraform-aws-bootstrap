@@ -61,7 +61,7 @@ resource "null_resource" "bootstrap-prereqs" {
   count = "${coalesce(var.aws_ami, var.user_data) == "" ? 1 : 0}"
 
   connection {
-    host = "${var.associate_public_ip_address ? module.dcos-bootstrap-instance.public_ips[0] : module.dcos-bootstrap-instance.private_ips[0]}"
+    host = "${var.aws_associate_public_ip_address ? module.dcos-bootstrap-instance.public_ips[0] : module.dcos-bootstrap-instance.private_ips[0]}"
     user = "${module.dcos-tested-oses.user}"
   }
 
