@@ -15,5 +15,10 @@ output "private_ip" {
 
 output "os_user" {
   description = "Output the OS user if default AMI is used"
-  value       = "${module.dcos-tested-oses.user}"
+  value       = "${module.dcos-bootstrap-instance.os_user}"
+}
+
+output "prereq-id" {
+  description = "Returns the ID of the prereq script (if user_data or ami are not used)"
+  value       = "${module.dcos-bootstrap-instance.prereq-id}"
 }
