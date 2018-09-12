@@ -1,7 +1,6 @@
 variable "region" {
   description = "Specify the region to be used"
-
-  #default     = ""
+  default     = ""
 }
 
 variable "cluster_name" {
