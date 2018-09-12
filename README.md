@@ -32,6 +32,7 @@ module "dcos-bootstrap-instance" {
 | aws_root_volume_type | Specify the root volume type. | string | `standard` | no |
 | aws_security_group_ids | Firewall IDs to use for these instances | list | - | yes |
 | aws_subnet_ids | Subnets to spawn the instances in. The module tries to distribute the instances | list | - | yes |
+| region | Specify the region to be used. | string | - | no |
 | cluster_name | Specify the cluster name all resources get named and tagged with | string | - | yes |
 | dcos_instance_os | The operating system to use. Instead of using your own AMI you could use a provided OS. | string | `centos_7.4` | no |
 | hostname_format | Format the hostname inputs are index+1, region, cluster_name | string | `%[3]s-bootstrap%[1]d-%[2]s` | no |
