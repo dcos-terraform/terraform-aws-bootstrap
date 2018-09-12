@@ -9,7 +9,7 @@
  *
  *```hcl
  * module "dcos-bootstrap-instance" {
- *   source  = "terraform-dcos/bootstrap/aws"
+ *   source  = "dcos-terraform/bootstrap/aws"
  *   version = "~> 0.1"
  *
  *   cluster_name = "production"
