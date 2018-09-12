@@ -42,6 +42,7 @@ module "dcos-bootstrap-instance" {
     aws = "aws"
   }
 
+  region                      = "${var.region}"
   cluster_name                = "${var.cluster_name}"
   hostname_format             = "${var.hostname_format}"
   num                         = "1"
