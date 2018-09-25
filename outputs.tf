@@ -14,7 +14,7 @@ output "private_ip" {
 }
 
 output "os_user" {
-  description = "Output the OS user if default AMI is used"
+  description = "The OS user to be used"
   value       = "${module.dcos-bootstrap-instance.os_user}"
 }
 
