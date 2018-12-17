@@ -48,6 +48,11 @@ variable "aws_associate_public_ip_address" {
   default     = true
 }
 
+variable "num_bootstrap" {
+  description = "Specify the amount of bootstrap. You should have at most 1"
+  default     = 1
+}
+
 variable "user_data" {
   description = "User data to be used on these instances (cloud-init)"
   default     = ""

@@ -33,7 +33,7 @@ module "dcos-bootstrap-instance" {
 
   cluster_name                = "${var.cluster_name}"
   hostname_format             = "${var.hostname_format}"
-  num                         = "1"
+  num                         = "${var.num_bootstrap}"
   ami                         = "${var.aws_ami}"
   user_data                   = "${var.user_data}"
   instance_type               = "${var.aws_instance_type}"
