@@ -26,7 +26,7 @@ provider "aws" {}
 module "dcos-bootstrap-instance" {
   #source  = "dcos-terraform/instance/aws"
   #version = "~> 0.1.0"
-  source = "/Users/westonbassler/Documents/git-repos/name_prefix/terraform-aws-instance"
+  source = "../terraform-aws-instance"
 
   providers = {
     aws = "aws"
