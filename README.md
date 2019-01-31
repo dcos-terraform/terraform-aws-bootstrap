@@ -35,6 +35,7 @@ module "dcos-bootstrap-instance" {
 | cluster_name | Name of the DC/OS cluster | string | - | yes |
 | dcos_instance_os | Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `centos_7.4` | no |
 | hostname_format | Format the hostname inputs are index+1, region, cluster_name | string | `%[3]s-bootstrap%[1]d-%[2]s` | no |
+| name_prefix | Name Prefix | string | `` | no |
 | num_bootstrap | Specify the amount of bootstrap. You should have at most 1 | string | `1` | no |
 | tags | Add custom tags to all resources | map | `<map>` | no |
 | user_data | User data to be used on these instances (cloud-init) | string | `` | no |

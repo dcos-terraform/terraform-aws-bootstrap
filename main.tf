@@ -24,8 +24,9 @@ provider "aws" {}
 
 // Instances is spawning the VMs to be used with DC/OS (bootstrap)
 module "dcos-bootstrap-instance" {
-  source  = "dcos-terraform/instance/aws"
-  version = "~> 0.1.0"
+  #source  = "dcos-terraform/instance/aws"
+  #version = "~> 0.1.0"
+  source = "/Users/westonbassler/Documents/git-repos/name_prefix/terraform-aws-instance"
 
   providers = {
     aws = "aws"
@@ -46,4 +47,5 @@ module "dcos-bootstrap-instance" {
   tags                        = "${var.tags}"
   dcos_instance_os            = "${var.dcos_instance_os}"
   iam_instance_profile        = "${var.aws_iam_instance_profile}"
+  name_prefix                 = "${var.name_prefix}"
 }
