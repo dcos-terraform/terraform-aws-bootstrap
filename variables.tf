@@ -72,3 +72,8 @@ variable "dcos_instance_os" {
   description = "Operating system to use. Instead of using your own AMI you could use a provided OS."
   default     = "centos_7.4"
 }
+
+variable "name_prefix" {
+  description = "Name Prefix"
+  default     = ""
+}
