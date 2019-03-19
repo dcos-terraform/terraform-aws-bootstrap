@@ -35,7 +35,7 @@ module "dcos-bootstrap-instance" {
   hostname_format             = "${var.hostname_format}"
   num                         = "${var.num_bootstrap}"
   ami                         = "${var.aws_ami}"
-  user_data                   = "${var.user_data}"
+  user_data                   = "${var.user_data == "" && var.aws_ami == "" ? file("${path.module}/cloudinit.tpl") : var.user_data}"
   instance_type               = "${var.aws_instance_type}"
   subnet_ids                  = ["${var.aws_subnet_ids}"]
   security_group_ids          = ["${var.aws_security_group_ids}"]
