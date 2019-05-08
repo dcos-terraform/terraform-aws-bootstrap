@@ -25,7 +25,7 @@ module "dcos-bootstrap-instance" {
 | aws\_security\_group\_ids | Firewall IDs to use for these instances | list | n/a | yes |
 | aws\_subnet\_ids | Subnets to spawn the instances in. The module tries to distribute the instances | list | n/a | yes |
 | cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
-| aws\_ami | AMI that will be used for the instances instead of Mesosphere provided AMIs | string | `""` | no |
+| aws\_ami | AMI that will be used for the instances instead of the Mesosphere chosen default images. Custom AMIs must fulfill the Mesosphere DC/OS system-requirements: See https://docs.mesosphere.com/1.12/installing/production/system-requirements/ | string | `""` | no |
 | aws\_associate\_public\_ip\_address | Associate a public IP address with the instances | string | `"true"` | no |
 | aws\_iam\_instance\_profile | Instance profile to be used for these instances | string | `""` | no |
 | aws\_instance\_type | Instance type | string | `"t2.medium"` | no |
