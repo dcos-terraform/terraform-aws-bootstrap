@@ -44,7 +44,6 @@ module "dcos-bootstrap-instance" {
 |------|-------------|
 | instance | List of instances IDs created by this module |
 | os\_user | The OS user to be used |
-| prereq-id | Returns the ID of the prereq script (if user_data or ami are not used) |
 | private\_ip | List of private ip addresses created by this module |
 | public\_ip | List of public ip addresses created by this module |
 
