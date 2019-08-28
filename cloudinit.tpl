@@ -10,6 +10,8 @@ yum_repos:
 packages:
 - docker-ce
 runcmd:
+  - [ systemctl, disable, firewalld.service ]
+  - [ systemctl, stop, firewalld.service ]
   - [ systemctl, daemon-reload ]
   - [ systemctl, enable, docker.service ]
   - [ systemctl, start, --no-block, docker.service ]
